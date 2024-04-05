@@ -10,7 +10,9 @@ public class Main {
         String password = "bishal0000@";
 
         // where the crud queries are written
-        String query = "DELETE FROM employees where id = 5; ";
+        String query = "UPDATE employees\n" +
+                "SET name = 'Nishant Kharel' \n" +
+                "WHERE id = 2;";
 
 
         try{
@@ -31,10 +33,10 @@ public class Main {
             int rowsAffected = stmt.executeUpdate(query);
 
             if(rowsAffected > 0){
-                System.out.println("Deletion Successful!!" + rowsAffected + " row(s) affected.");
+                System.out.println("Updation Successful!!" + rowsAffected + " row(s) affected.");
             }
             else {
-                System.out.println("Deletion Failed");
+                System.out.println("Updation Failed");
             }
 
 

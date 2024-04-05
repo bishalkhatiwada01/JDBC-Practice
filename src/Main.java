@@ -8,7 +8,7 @@ public class Main {
         String url = "jdbc:mysql://localhost:3306/myDatabase";
         String username = "root";
         String password = "bishal0000@";
-        String query = "Select * from employees;";
+        String query = "INSERT INTO employees( id, name, job_title, salary) VALUES ( 4, 'Bishap Bhusal', 'Project Manager', 96000.0);";
 
 
         try{
@@ -24,22 +24,34 @@ public class Main {
             System.out.println("Conection Established Successfully!!!");
             System.out.println("********************************************");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
+            int rowsAffected = stmt.executeUpdate(query);
 
-            while (rs.next()){
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String job_title = rs.getString("job_title");
-                double salary = rs.getDouble("salary");
-                System.out.println();
-                System.out.println("-------------------------------------");
-                System.out.println("ID: " + id);
-                System.out.println("Name: " + name);
-                System.out.println("Job Title: " + job_title);
-                System.out.println("Salary: $" + salary);
-
+            if(rowsAffected > 0){
+                System.out.println("Insertion Successful!!" + rowsAffected + " row(s) affected.");
             }
-            rs.close();
+            else {
+                System.out.println("Insertion Failed");
+            }
+
+
+            // For Retrieving the data from the database <<<<<<<<<<<<<<<<<<<
+//            ResultSet rs = stmt.executeQuery(query);
+//
+//            while (rs.next()){
+//                int id = rs.getInt("id");
+//                String name = rs.getString("name");
+//                String job_title = rs.getString("job_title");
+//                double salary = rs.getDouble("salary");
+//                System.out.println();
+//                System.out.println("-------------------------------------");
+//                System.out.println("ID: " + id);
+//                System.out.println("Name: " + name);
+//                System.out.println("Job Title: " + job_title);
+//                System.out.println("Salary: $" + salary);
+//            }
+//            rs.close();
+            // >>>>>>>>>>>>>>>>>>>>>.>>>>>>>>>>>>>>>
+
             stmt.close();
             con.close();
 

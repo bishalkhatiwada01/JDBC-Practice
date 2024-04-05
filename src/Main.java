@@ -8,7 +8,9 @@ public class Main {
         String url = "jdbc:mysql://localhost:3306/myDatabase";
         String username = "root";
         String password = "bishal0000@";
-        String query = "INSERT INTO employees( id, name, job_title, salary) VALUES ( 4, 'Bishap Bhusal', 'Project Manager', 96000.0);";
+
+        // where the crud queries are written
+        String query = "DELETE FROM employees where id = 5; ";
 
 
         try{
@@ -24,13 +26,15 @@ public class Main {
             System.out.println("Conection Established Successfully!!!");
             System.out.println("********************************************");
             Statement stmt = con.createStatement();
+
+            // [[[executeUpdate]]] is used to insert, update and delete the data to or from the table.
             int rowsAffected = stmt.executeUpdate(query);
 
             if(rowsAffected > 0){
-                System.out.println("Insertion Successful!!" + rowsAffected + " row(s) affected.");
+                System.out.println("Deletion Successful!!" + rowsAffected + " row(s) affected.");
             }
             else {
-                System.out.println("Insertion Failed");
+                System.out.println("Deletion Failed");
             }
 
 

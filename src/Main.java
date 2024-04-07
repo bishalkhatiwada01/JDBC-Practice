@@ -22,7 +22,6 @@ public class Main {
         catch (ClassNotFoundException e){
             System.out.println(e.getMessage());
         }
-
         try{
             Connection con = DriverManager.getConnection(url, username, password);
             System.out.println("Conection Established Successfully!!!");
@@ -69,8 +68,5 @@ public class Main {
         catch (SQLException e){
             System.out.println(e.getMessage());
         }
-
-
-
     }
 }

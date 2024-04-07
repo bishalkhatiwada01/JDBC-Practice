@@ -32,6 +32,8 @@ class ImageHandling {
         try {
             Connection con = DriverManager.getConnection(url, username, password);
             System.out.println("Connection established successfully");
+
+//            <<<<<<< For Inseeting the Image
 //            FileInputStream fileInputStream = new FileInputStream(image_path);
 //            byte[] imageData = new byte[fileInputStream.available()];
 //            fileInputStream.read(imageData);
@@ -46,6 +48,7 @@ class ImageHandling {
 //            else {
 //                System.out.println("Failed!!!! Image is not inserted");
 //            }
+//            >>>>>>>>>>>>>>>>>>>>>>
 
             PreparedStatement preparedStatement = con.prepareStatement(query);
             preparedStatement.setInt(1, 1);
